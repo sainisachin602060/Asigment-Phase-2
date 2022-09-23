@@ -1,1 +1,0 @@
-select name from student where course_id=(select course_id from Course where course_name='Python');
