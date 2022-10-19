@@ -8,8 +8,6 @@ from unittest import result
 from urllib import response
 from wsgiref.headers import Headers
 import termtables as tt
-
-
 import psycopg2
 
 print("☎️ Contact  Appliaction ☎️")
@@ -37,10 +35,6 @@ except Exception:
     
     
 #Registerd  
-
-
-
-    
 def regitration():
     print("")
     print("----------Registerd Here---------------")
@@ -50,8 +44,6 @@ def regitration():
     Name=input("USERNAME---🔒 \t")
     print(" ")
     Pass=input("PASSWORD---🔒 \t")
-    
-    
     
     #exiting user check
     try:
@@ -64,8 +56,6 @@ def regitration():
         for j in tup:
             Inte=j
            
-             
-          
         if( Inte>0):
             print("Already Exits❌ Please login✅")
             
@@ -88,14 +78,7 @@ def regitration():
         Menu() 
         
         
-        
-        
-        
-             
-                
 #we have suceesfull registration done
-
-
 def login():
     
     list1=[]
@@ -132,13 +115,6 @@ def login():
         Menu()
         
         
-        
-        
-                  
- 
-   
-        
-        
 def Menu():
     print(" \n ""***WELCOME TO  📞 PHONEBOOK APPLICATION 2022** """)
     print("")
@@ -163,8 +139,6 @@ def Menu():
     print("[del all]     | delete all contact")
     print("")
     print("")
-    
-    
     response=input("What Do You Want--------- \t")
    
      
@@ -199,8 +173,6 @@ def Menu():
         
         
        #New Add Methd Is Here 
-        
-        
 def add():
     item=[]
     Name=input("Name------\t")
@@ -216,29 +188,17 @@ def add():
     print("")
     print(" ")
     id=int(input("ID-------\t"))
-    
-    
-    
-    
     try:
        query1="INSERT INTO list VALUES (%s,%s,%s,%s,%s)"
        query2=(Name,Fullname,Mobile,Email,id)
        cursor.execute(query1,query2)
        connection.commit()
-       
-       
-       
        print("")
        print("Contact has been saved!✅")
        input("Continue to press ENTER")
        Menu()
-       
-       
-       
        cursor.close()
        connection.close()
-      
-       
        
     except Exception:
        print("You Got an Error.Contact Not be Saved❌")   
@@ -271,10 +231,7 @@ def view():
     
     
     
-    ## delete method is here
-        
-        
-    
+    ## delete method is here   
 def delete():
     print("")
     Name=input("Which Contact You Want To Delete----- \t")
@@ -291,12 +248,6 @@ def delete():
         input("Continue to press ENTER")
         Menu() 
             
-            
-        
-            
-            
-    
-    
     except Exception:
         print("Not Found❌")
         input("Continue to press ENTER")
@@ -304,11 +255,7 @@ def delete():
     cursor.close()
     connection.close()
 
-    
- #delete specific method is here
- 
- 
- 
+#delete specific method is here
 def deleteAS():
     try:
         cursor.execute("delete from list")
@@ -325,12 +272,7 @@ def deleteAS():
     cursor.close()
     connection.close()
     
-    
- 
- 
- #view method is here
-    
-    
+#view method is here
 def viewAS():
     print("")
     
@@ -362,14 +304,7 @@ def viewAS():
     connection.close()
         
     
-
-
-
 #update method is here
-
-
-
-
 def update():
     try:
         print("1. |    Name")
@@ -384,9 +319,6 @@ def update():
         
         if(Choice==1):
             name()
-    
-            
-        
         elif(Choice==2):
             Full()
             print('')
@@ -412,10 +344,6 @@ def update():
         Menu()   
         
         
-        
-     
-      
-        
 def upd():
     
     try:
@@ -434,25 +362,14 @@ def upd():
     except Exception:
         print("Name Not Found")    
     
-    
     update()
     
-    
-    
-                    
-        
-     
-     
+
 def name(): 
     try:
-         
         query4="select * from list"
         cursor.execute(query4,)
         result2=cursor.fetchall()
-        
-        
-        
-      
         Name=input("Enter New Upadted Name--- \t")
         print("")
         id=int(input("Enter Id NO"))
@@ -460,21 +377,13 @@ def name():
         query2=(Name,id)
         cursor.execute(query1,query2)
         connection.commit()
-        
-       
-      
-      
         query3="select * from list"
         cursor.execute(query3,)
         result1=cursor.fetchall()
-      
-      
         if(result2==result1):
             print("")
             print("Name is sucessfully not Updated❌ ")
             print("")
-            
-            
         else:
             print(" Update sucessfull✅")
                 
@@ -489,30 +398,11 @@ def name():
         Menu()  
   
   
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
 def Full(): 
     try:
-         
         query4="select * from list"
         cursor.execute(query4,)
         result2=cursor.fetchall()
-        
-        
-        
-      
         Name=input("Enter New Full Name--- \t")
         print("")
         id=int(input("Enter Id NO"))
@@ -520,21 +410,13 @@ def Full():
         query2=(Name,id)
         cursor.execute(query1,query2)
         connection.commit()
-        
-       
-      
-      
         query3="select * from list"
         cursor.execute(query3,)
         result1=cursor.fetchall()
-      
-      
         if(result2==result1):
             print("")
             print("FUllName is sucessfully not Updated❌ ")
             print("")
-            
-            
         else:
             print(" Update sucessfull✅")
                 
@@ -548,22 +430,12 @@ def Full():
         input("Continue to press ENTER")
         Menu() 
         
-        
-        
-        
-        
-        
-         
 def Mobile(): 
     try:
          
         query4="select * from list"
         cursor.execute(query4,)
         result2=cursor.fetchall()
-        
-        
-        
-      
         mobile=input("Enter New Upadted mobile--- \t")
         print("")
         id=int(input("Enter Id NO"))
@@ -571,21 +443,13 @@ def Mobile():
         query2=(mobile,id)
         cursor.execute(query1,query2)
         connection.commit()
-        
-       
-      
-      
         query3="select * from list"
         cursor.execute(query3,)
         result1=cursor.fetchall()
-      
-      
         if(result2==result1):
             print("")
             print("mobile is sucessfully not Updated❌ ")
             print("")
-            
-            
         else:
             print(" mobile update sucessfull✅")
                 
@@ -599,22 +463,12 @@ def Mobile():
         input("Continue to press ENTER")
         Menu()  
   
-     
-        
-    
-    
-    
-    
 def Email(): 
     try:
          
         query4="select * from list"
         cursor.execute(query4,)
         result2=cursor.fetchall()
-        
-        
-        
-      
         Name=input("Enter New Upadted Email--- \t")
         print("")
         id=int(input("Enter Id NO"))
@@ -622,21 +476,13 @@ def Email():
         query2=(Name,id)
         cursor.execute(query1,query2)
         connection.commit()
-        
-       
-      
-      
         query3="select * from list"
         cursor.execute(query3,)
         result1=cursor.fetchall()
-      
-      
         if(result2==result1):
             print("")
             print("email is  not sucessfully  Updated❌ ")
             print("")
-            
-            
         else:
             print(" email Update sucessfull✅")
                 
@@ -649,21 +495,7 @@ def Email():
         print("Some Issue Name Not Updated.❗  Retry") 
         input("Continue to press ENTER")
         Menu()  
-  
-  
-  
-          
-         
-  
- 
-      
-  
-  
-  
-  
-  
-  
-#STARTING YOUR PROGRAM HERE   
+  #STARTING YOUR PROGRAM HERE   
     
 def option():
     print("1. New User Registration")
